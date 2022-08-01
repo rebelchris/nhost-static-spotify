@@ -14,7 +14,6 @@ import {
 import Avatar from './Avatar';
 
 const Layout = ({ children = null }) => {
-  const { user } = useUserContext();
 
   const menuItems = [
     {
@@ -53,7 +52,6 @@ const Layout = ({ children = null }) => {
 
           <Menu as="div" className={styles.menu}>
             <Menu.Button className={styles['menu-button']}>
-              <Avatar src={user?.avatarUrl} alt={user?.displayName} />
               <ChevronDownIcon />
             </Menu.Button>
             <Transition
@@ -66,13 +64,7 @@ const Layout = ({ children = null }) => {
               leaveTo={styles['menu-transition-leave-to']}
             >
               <Menu.Items className={styles['menu-items-container']}>
-                <div className={styles['menu-header']}>
-                  <Avatar src={user?.avatarUrl} alt={user?.displayName} />
-                  <div className={styles['user-details']}>
-                    <span>{user?.displayName}</span>
-                    <span className={styles['user-email']}>{user?.email}</span>
-                  </div>
-                </div>
+
 
                 <div className={styles['menu-items']}>
                   {menuItems.map(({ label, href, onClick, icon: Icon }) => (
